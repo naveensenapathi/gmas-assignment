@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   </head>
   <body ng-app="gmasAssignmentApp">
     <!--[if lte IE 8]>
@@ -37,12 +38,6 @@
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -87,10 +82,16 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/external/jquery-ui.js"></script>
+        <script src="scripts/external/filesaver.js"></script>
+        <script src="scripts/external/html2canvas.js"></script>
+        <script src="scripts/external/canvastoBlob.js"></script>
         <script src="scripts/directives/fileupload.js"></script>
         <script src="scripts/directives/fileselect.js"></script>
+        <script src="scripts/directives/resizable.js"></script>
+        <script src="scripts/directives/draggable.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,17 +1,31 @@
 <div class="app-container">
   <div class="canvas-header-container">
-    <div class="upload-text">Upload your image and start using frames</div>
+    <div class="upload-text">Download your frame</div>
     <div>
-      <button class="upload-btn" uploadfile>Upload <span class="glyphicon glyphicon-upload"></span></button>
-      <input style="display: none;" selectfile="selectFile" type="file" id="upload" accept="image/*" />
+      <button class="download-btn" ng-click="downloadFrame()">Download <span class="glyphicon glyphicon-download-alt"></span></button>
+    </div>
+    <div>
     </div>
   </div>
+  <input style="display: none;" selectfile="selectImage" type="file" id="uploadImage" accept="image/*" />
+  <input style="display: none;" selectfile="selectFrame" type="file" id="uploadFrame" accept="image/*" />
   <div class="canvas-container">
     <div class="canvas">
       <div class="cropArea">
-        <img-crop image="customImage" result-image="myCroppedImage" area-type="square"></img-crop>
+        <button class="clear-btn" ng-click="clearImage('customImage')">Clear</button>
+        <div class="upload-text" uploadfile="uploadImage" ng-hide="customImage">Upload your image</div>
+        <img-crop image="customImage" result-image="croppedImage" area-type="square" change-on-fly=true></img-crop>
       </div>
     </div>
+    <div class="frame-container">
+      <div class="frame">
+        <button class="clear-btn" ng-click="clearImage('frameImage')">Clear</button>
+        <div draggable class="cropped-image-container"><img class="cropped-image" resizable ng-src={{croppedImage}}><span ng-show="customImage" class="glyphicon glyphicon-move cropped-image-drag-icon"></span><span ng-show="customImage" class="glyphicon glyphicon-arrow-right cropped-image-resize-icon"></span></img>
+        </div>
+        <div class="upload-text" uploadfile="uploadFrame" ng-hide="frameImage">Upload your frame</div>
+        <div class="img-crop" ng-style="{'background-image': 'url(' + frameImage + ')'}">
+        </div>
+      </div>
+    </div>
+    <div class="frame-list-container"></div>
   </div>
-  <div class="frame-list-container"></div>
-</div>
